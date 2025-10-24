@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Analytics Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#1173d4",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101922",
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            },
+            borderRadius: {
+              "DEFAULT": "0.25rem",
+              "lg": "0.5rem",
+              "xl": "0.75rem",
+              "full": "9999px"
+            },
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display bg-background-light dark:bg-background-dark">
+<div class="relative flex h-auto min-h-screen w-full flex-col">
+<!-- Top App Bar -->
+<header class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between sticky top-0 z-10 border-b border-slate-200 dark:border-slate-800">
+<button class="flex size-10 shrink-0 items-center justify-center rounded-full text-slate-700 dark:text-slate-300">
+<span class="material-symbols-outlined text-2xl">menu</span>
+</button>
+<h1 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Analytics Dashboard</h1>
+<button class="flex size-10 shrink-0 items-center justify-center rounded-full text-slate-700 dark:text-slate-300">
+<span class="material-symbols-outlined text-2xl">notifications</span>
+</button>
+</header>
+<main class="flex-1 p-4 space-y-6">
+<!-- Filters Section -->
+<section>
+<div class="flex items-center justify-between px-1 pb-3">
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Filters</h2>
+<button class="flex items-center gap-1 text-primary text-sm font-medium">
+<span>Collapse</span>
+<span class="material-symbols-outlined text-xl">expand_less</span>
+</button>
+</div>
+<div class="space-y-4">
+<div class="flex flex-col sm:flex-row max-w-full items-end gap-4">
+<label class="flex flex-col min-w-40 flex-1">
+<p class="text-slate-600 dark:text-slate-300 text-sm font-medium leading-normal pb-2">Date Range</p>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-slate-500 text-xl">calendar_today</span>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-slate-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800/50 focus:border-primary h-12 placeholder:text-slate-400 dark:placeholder:text-slate-500 pl-10 pr-4 text-base font-normal leading-normal" placeholder="Select date" value="Last 30 Days"/>
+</div>
+</label>
+<label class="flex flex-col min-w-40 flex-1">
+<p class="text-slate-600 dark:text-slate-300 text-sm font-medium leading-normal pb-2">Product</p>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-slate-500 text-xl">widgets</span>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-slate-900 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800/50 focus:border-primary h-12 placeholder:text-slate-400 dark:placeholder:text-slate-500 pl-10 pr-4 text-base font-normal leading-normal" placeholder="All Products" value="Model-X, Model-Y"/>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-slate-500 text-xl">arrow_drop_down</span>
+</div>
+</label>
+</div>
+<div class="flex gap-2 p-1 overflow-x-auto">
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary/20 text-primary px-4"><p class="text-sm font-semibold leading-normal">All</p></button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-slate-200 dark:bg-slate-800 px-4"><p class="text-slate-600 dark:text-slate-300 text-sm font-medium leading-normal">In Progress</p></button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-slate-200 dark:bg-slate-800 px-4"><p class="text-slate-600 dark:text-slate-300 text-sm font-medium leading-normal">Completed</p></button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-slate-200 dark:bg-slate-800 px-4"><p class="text-slate-600 dark:text-slate-300 text-sm font-medium leading-normal">Delayed</p></button>
+</div>
+</div>
+</section>
+<!-- Key Metrics Section -->
+<section>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] px-1 pb-3 pt-4">Key Metrics</h2>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+<div class="rounded-xl bg-white dark:bg-slate-800/50 p-4 border border-slate-200 dark:border-slate-800">
+<p class="text-sm font-medium text-slate-500 dark:text-slate-400">Total Orders</p>
+<p class="text-3xl font-bold text-slate-900 dark:text-white mt-1">1,254</p>
+<div class="flex items-center mt-2 text-sm text-green-600 dark:text-green-500">
+<span class="material-symbols-outlined text-base">arrow_upward</span>
+<p class="font-medium ml-1">12% vs last month</p>
+</div>
+</div>
+<div class="rounded-xl bg-white dark:bg-slate-800/50 p-4 border border-slate-200 dark:border-slate-800">
+<p class="text-sm font-medium text-slate-500 dark:text-slate-400">Overall Efficiency</p>
+<p class="text-3xl font-bold text-slate-900 dark:text-white mt-1">92.8%</p>
+<div class="flex items-center mt-2 text-sm text-green-600 dark:text-green-500">
+<span class="material-symbols-outlined text-base">arrow_upward</span>
+<p class="font-medium ml-1">2.1% vs last month</p>
+</div>
+</div>
+<div class="rounded-xl bg-white dark:bg-slate-800/50 p-4 border border-slate-200 dark:border-slate-800">
+<p class="text-sm font-medium text-slate-500 dark:text-slate-400">Cost Variance</p>
+<p class="text-3xl font-bold text-slate-900 dark:text-white mt-1">+$4,201</p>
+<div class="flex items-center mt-2 text-sm text-red-600 dark:text-red-500">
+<span class="material-symbols-outlined text-base">arrow_downward</span>
+<p class="font-medium ml-1">Over budget by 3.5%</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Charts Section -->
+<section class="space-y-4">
+<!-- Production Efficiency Chart -->
+<div class="rounded-xl bg-white dark:bg-slate-800/50 p-4 border border-slate-200 dark:border-slate-800">
+<h3 class="text-base font-semibold text-slate-800 dark:text-slate-200">Production Efficiency</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400">Efficiency Trend Over Time</p>
+<div class="mt-4 h-48 w-full">
+<svg height="100%" preserveaspectratio="none" viewbox="0 0 300 150" width="100%">
+<defs>
+<lineargradient id="line-chart-gradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#1173d4" stop-opacity="0.2"></stop>
+<stop offset="100%" stop-color="#1173d4" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<path d="M 0 100 Q 50 80, 100 90 T 200 60 T 300 70 L 300 150 L 0 150 Z" fill="url(#line-chart-gradient)"></path>
+<path d="M 0 100 Q 50 80, 100 90 T 200 60 T 300 70" fill="none" stroke="#1173d4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+<circle cx="100" cy="90" fill="#fff" r="3" stroke="#1173d4" stroke-width="2"></circle>
+<circle cx="200" cy="60" fill="#fff" r="3" stroke="#1173d4" stroke-width="2"></circle>
+<circle cx="300" cy="70" fill="#fff" r="3" stroke="#1173d4" stroke-width="2"></circle>
+</svg>
+</div>
+</div>
+<!-- Cost Analysis Chart -->
+<div class="rounded-xl bg-white dark:bg-slate-800/50 p-4 border border-slate-200 dark:border-slate-800">
+<h3 class="text-base font-semibold text-slate-800 dark:text-slate-200">Cost Analysis</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400">Breakdown by Category</p>
+<div class="mt-4 h-48 w-full flex items-center justify-center">
+<svg height="150" viewbox="0 0 36 36" width="150">
+<circle cx="18" cy="18" fill="none" r="15.915" stroke="#2dd4bf" stroke-dasharray="60 40" stroke-dashoffset="-0" stroke-width="3.8"></circle>
+<circle cx="18" cy="18" fill="none" r="15.915" stroke="#38bdf8" stroke-dasharray="30 70" stroke-dashoffset="-60" stroke-width="3.8"></circle>
+<circle cx="18" cy="18" fill="none" r="15.915" stroke="#1173d4" stroke-dasharray="10 90" stroke-dashoffset="-90" stroke-width="3.8"></circle>
+<text class="text-xs font-semibold fill-slate-800 dark:fill-slate-200" text-anchor="middle" x="18" y="20.35">$1.2M</text>
+</svg>
+</div>
+</div>
+<!-- Order Completion Trends Chart -->
+<div class="rounded-xl bg-white dark:bg-slate-800/50 p-4 border border-slate-200 dark:border-slate-800">
+<h3 class="text-base font-semibold text-slate-800 dark:text-slate-200">Order Completion Trends</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400">On-time vs. Delayed</p>
+<div class="mt-4 h-48 w-full">
+<svg height="100%" preserveaspectratio="none" viewbox="0 0 300 150" width="100%">
+<g transform="translate(20, 130) scale(1, -1)">
+<rect fill="#1173d4" height="100" rx="4" width="40" x="10" y="0"></rect>
+<rect fill="#2dd4bf" height="120" rx="4" width="40" x="70" y="0"></rect>
+<rect fill="#f59e0b" height="70" rx="4" width="40" x="130" y="0"></rect>
+<rect fill="#ef4444" height="20" rx="4" width="40" x="190" y="0"></rect>
+</g>
+</svg>
+</div>
+</div>
+</section>
+</main>
+</div>
+</body></html>
